@@ -1,0 +1,64 @@
+version: 2
+
+models:
+
+  - name: bronze_bookings
+    description: "Bronze layer containing raw booking data loaded from the staging source."
+
+    columns:
+      - name: BOOKING_ID
+        description: "Unique identifier for each booking."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: LISTING_ID
+        description: "Identifier of the listing associated with the booking."
+        data_tests:
+          - not_null
+
+      - name: BOOKING_DATE
+        description: "Date associated with the booking."
+        data_tests:
+          - not_null
+
+      - name: BOOKING_STATUS
+        description: "Current status of the booking."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values:
+                - confirmed
+                - cancelled
+
+      - name: BOOKING_AMOUNT
+        description: "Base amount associated with the booking."
+        data_tests:
+          - not_null
+
+
+  - name: bronze_hosts
+    description: "Bronze layer containing raw host data loaded from the staging source."
+
+    columns:
+      - name: HOST_ID
+        description: "Unique identifier for each host."
+        data_tests:
+          - not_null
+          - unique
+
+
+  - name: bronze_listings
+    description: "Bronze layer containing raw listing data loaded from the staging source."
+
+    columns:
+      - name: LISTING_ID
+        description: "Unique identifier for each listing."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: HOST_ID
+        description: "Identifier of the host associated with the listing."
+        data_tests:
+          - not_null

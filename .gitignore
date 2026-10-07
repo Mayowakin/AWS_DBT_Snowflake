@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+target/
+dbt_packages/
+logs/
+.env
+profiles.yml
+.vscode/
