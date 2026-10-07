@@ -3,7 +3,7 @@ aws_dbt_snowflake_project:
     dev:
       account: QMZPNMV-PY08149
       database: AIRBNB
-      password: HannibalForKing2026
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       role: ACCOUNTADMIN
       schema: dbt_schema
       threads: 1
